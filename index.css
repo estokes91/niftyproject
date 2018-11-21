@@ -52,7 +52,10 @@
 }
 
 
-#display{
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     position: static;
     top:0px;
     bottom: 0px;
@@ -64,39 +67,57 @@
 }
 
 #contents{
+/*
     position: relative;
+    display: inline-block;
     height: auto;
     width: 70%;
+*/
     background-color: rgba(0,0,0, 0.75);
     color: white;
-    display: inline-block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
     
-    left: 0px;
+    
 }
 
 #about{
     
-    width: 10%;
+    
     background-color: mediumpurple;
+/*
     display: inline-block;
     height: 40%;
     top: 0px;
     right: 0px;
+    width: 10%;
+*/
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     
 }
 
-/*
 #friends{
     
-    width: 10%;
-    background-color: mediumblue;
+    
+    background-color: red;
+/*
     display: inline;
     height: 40%;
     bottom: 0px;
     right: 0px;
+    width: 10%;
+*/
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
     
 }
-*/
 
 
 
