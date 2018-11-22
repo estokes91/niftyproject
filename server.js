@@ -11,7 +11,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (request, response) => {
-	response.render(dpub + 'index.hbs', {
+	response.render(dpub + 'homepage.hbs', {
 
 	})
 });
@@ -19,4 +19,3 @@ app.get('/', (request, response) => {
 app.listen(8080, () => {
 	console.log('Server is up on port 8080');
 });
-

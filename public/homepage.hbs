@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NetKong Homepage</title>
+        <link rel="stylesheet" href="homepage.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div id="upperfold">
+            <div id="logo"><img id="logoimg" src="imgs/netkong.png"></div>
+            <div id="title">Nifty</div>
+
+            <button class="menuItem">Events</button>
+            <button class="menuItem">Profile</button>
+            <button class="menuItem">Find Event</button>
+            <button class="menuItem">1</button>
+           
+        </div>
+            
+        
+        <div id="display">
+            <div id="map"></div>
+
+            <script>
+                var event_map;
+                function initMap() {
+
+                    event_map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 14,
+                        center: {lat: 49.2827, lng: -123.1207}
+                    });
+                }
+            </script>
+
+            <div id="about">
+
+            </div>
+
+            <div id="attending">
+
+            </div>
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0&callback=initMap"></script>
+    </body>
+    
+</html>
