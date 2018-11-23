@@ -8,6 +8,7 @@
     top: 0px;
     bottom: 0px;
     margin: auto;
+    padding-left: 1%;
     
 }
 
@@ -27,7 +28,7 @@
     color: white;
     background-color: darkslategray;
     z-index: 99;
-    height: 40%;
+    height: 30%;
     width: 40%;
     display: inline-block;
     text-align: center;
@@ -40,7 +41,7 @@
 .menuItem{
     display: inline-block;
     position: relative;
-    width: 10%;
+    width: 11.1%;
     height: 30%;
     border: none;
     text-align: center;
@@ -59,54 +60,64 @@
 }
 
 
+
 #display{
     position: static;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 20%;
+    grid-template-rows: 25% 25% 20% 20%;
+    grid-gap: 1%;
     top:0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
     margin: auto;
-    height: auto;
+    height: 77.5vh;
     width: 85vw; 
 }
 
 #map{
     position: relative;
-    height: 400px;
-    width: 49%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
 }
 
 #about{
-    width: 49%;
     background-color: lightgreen;
-    height: 150px;
-    top: 400px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
+    
 }
 
 #attending{
-    width: 49%;
     background-color: red;
-    position: inline-block;
-    height: 150px;
-    right: 0px;
-    top: 0px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    height: 100%;
+    width: 100%;
+    
 }
 
-
-
-/*
-#friends{
-    
-    width: 10%;
+#bigboss{
     background-color: mediumblue;
-    display: inline;
-    height: 40%;
-    bottom: 0px;
-    right: 0px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    height: 100%;
+    width: 100%;
     
 }
-*/
-
 
 
 body{
