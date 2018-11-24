@@ -9,33 +9,27 @@
     bottom: 0px;
     margin: auto;
     padding-left: 1%;
-    
 }
 
 #logo{
-    background-color: white;
+    /*background-color: white;*/
     height: 100px;
     width: 100px;
     position: relative;
     z-index: 99;
     display: inline-block;
     top: 20%;
-    border-radius: 10px;
 }
 
-#title{
-    font-size: 40px;
-    color: white;
-    background-color: darkslategray;
+#searchBar{
+    /*background-color: rgba(47, 79, 79, 1);*/
     z-index: 99;
     height: 30%;
     width: 40%;
     display: inline-block;
-    text-align: center;
-    margin: 10px;
+    margin-left: 20px;
     position: relative;
-    border-width: 5px;
-    border-radius: 15px;
+    bottom: 12px;
 }
 
 .menuItem{
@@ -44,8 +38,8 @@
     width: 11.1%;
     height: 30%;
     border: none;
-    text-align: center;
-    bottom: 10px;
+    bottom: 12px;
+    
 }
 
 #logoimg{
@@ -56,17 +50,14 @@
     left:0px;
     right:0px;
     margin:auto;
-
 }
-
-
 
 #display{
     position: static;
     display: grid;
     grid-template-columns: 25% 25% 25% 20%;
     grid-template-rows: 25% 25% 20% 20%;
-    grid-gap: 1%;
+    grid-gap: 10px;
     top:0px;
     bottom: 0px;
     left: 0px;
@@ -81,45 +72,66 @@
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 5;
     height: 100%;
     width: 100%;
 }
 
 #about{
-    background-color: lightgreen;
+    background-color: rgba(47, 79, 79, 0.8);
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 3;
     height: 100%;
     width: 100%;
-    
 }
 
 #attending{
-    background-color: red;
+    background-color: rgba(47, 79, 79, 0.8);
     grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    height: 100%;
+    width: 100%;
+}
+
+#bigboss{
+    background-color: rgba(47, 79, 79, 0.8);
+    grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 5;
     height: 100%;
-    width: 100%;
-    
+    width: 100%; 
 }
 
-#bigboss{
-    background-color: mediumblue;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 5;
+#searchField{
+    height: 85%;
+    width: 70%;
+    display: inline-block;
+}
+
+#searchButton{
     height: 100%;
-    width: 100%;
-    
+    width: 25%;
+    display: inline-block;
+    border: none;
 }
-
 
 body{
-    background-color: grey; 
+    background-image: url("imgs/connectwork.png");
+    background-color: darkgrey;
+}
+
+button:hover{
+    background-color: darkslategrey;
+    color: white;
+}
+
+.infoBox{
+    color:white;
+    text-align: center;
+    font-family: "Lato";
 }
