@@ -6,7 +6,6 @@ var fs = require('fs');
 var users = require('./users.js')
 
 var app = express();
-var dpub = __dirname + '/public/'
 
 /**
 urlencodedParser uses the bodyParser module to parse the form submission so it can be read as a json object  
@@ -25,8 +24,14 @@ app.get('/', (request, response) => {
 });
 
 app.get('/signup', (request, response) => {
-	response.render(dpub + 'signup.hbs', {
+	response.render('signup.hbs', {
 		title: 'Sign up for an account'
+	})
+});
+
+app.get('/login', (request, response) => {
+	response.render('login.hbs', {
+		title: 'Log into NetKong'
 	})
 });
 
