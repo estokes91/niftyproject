@@ -19,7 +19,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (request, response) => {
-	response.render(dpub + 'index.hbs', {
+	response.render('homepage.hbs', {
 
 	})
 });
