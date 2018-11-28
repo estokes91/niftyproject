@@ -67,7 +67,7 @@
     width: 85vw; 
 }
 
-#map{
+#view_map{
     position: relative;
     grid-column-start: 1;
     grid-column-end: 3;
