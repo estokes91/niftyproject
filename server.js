@@ -17,7 +17,10 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (request, response) => {
+/**
+The get /homepage is left in for testing, remove for final build - Emmett 
+*/ 
+app.get('/homepage', (request, response) => {
 	response.render('homepage.hbs', {
 
 	})
@@ -29,11 +32,27 @@ app.get('/signup', (request, response) => {
 	})
 });
 
-app.get('/login', (request, response) => {
+app.get('/', (request, response) => {
 	response.render('login.hbs', {
 		title: 'Log into NetKong'
 	})
 });
+
+/** 
+login checks to see that a username and password exist and match and then renders the homepage
+*/
+app.post('/', urlencodedParser, (request, response) => {
+	if (users.loginCheck(request.body.userLogin, request.body.passLogin) == 1) {
+		response.render('homepage.hbs', {
+			title: 'Main page'
+		})
+	}else {
+		response.render('loginfailed.hbs', {
+			title:'Login failed page'
+		});
+	}
+});
+
 
 /** 
 Receives the request from /signup form post submission, and uses urlencdodedParser variable to pass the details into the addUser function
