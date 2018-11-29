@@ -1,0 +1,45 @@
+#frogDad{
+	position: relative;
+	width: 100%;
+}
+
+#textBox{
+	font-size: 20px;
+	font-family: "Lato";
+	color: white;
+	height: 500px;
+	width: 600px;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+	margin: auto;
+	text-align: center;
+}
+
+#loginButton {
+    text-align:center;
+    cursor:pointer;
+    background-color: darkslategrey; 
+    color:white;
+    border:none;
+    width:170px;
+    height:50px;
+    font-size: 25px;
+    transition: 1s;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 15%;
+}
+
+#loginButton:hover {
+    background-color:#8DCAFF;
+    font-weight: 20px;
+}
+
+body{
+    background-image: url("imgs/connectwork.png");
+    background-color: darkgrey;
+}
