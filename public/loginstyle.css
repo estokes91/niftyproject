@@ -1,48 +1,114 @@
 #loginForm {
-    position:absolute;
-    text-align:center;
-    left:0px;
-    right:0px;
-    top:0px;
-    bottom:10%;
-    margin:auto;
-    width:50%;
-    height:50%;
-    font-style: sans-serif;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 
-#registerButton {
-    position:absolute;
+#loginButton {
     text-align:center;
     cursor:pointer;
-    left:0px;
-    right:0px;
-    bottom:-30%;
-    margin:auto;
-    background-color:#8DCAFF; 
+    background-color: darkslategrey; 
     color:white;
     border:none;
-    width:150px;
+    width:170px;
     height:50px;
     font-size: 25px;
     transition: 1s;
     border-radius: 10px;
     font-weight: bold;
     font-family: sans-serif;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 7;
 }
 
-#saveButton:hover {
-    background-color:#083B66;
-    color:white;
+#loginButton:hover {
+    background-color:#8DCAFF;
     font-weight: 20px;
 }
 
+#signupButton:hover {
+    background-color:#8DCAFF;
+}
+
 #name {
-    margin-top:5px;
-    margin-bottom:5px;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 5px;
 }
 
 #password {
-    margin-top:5px;
-    margin-bottom:5px;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: 5px;
+}
+
+#decorator{
+    height: 100%;
+    width: 100%;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    position: relative;
+}
+
+#decoImage{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#controls{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 8;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+    grid-template-rows: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+}
+
+#grid-container{
+    display: grid;
+    height: 97.5vh;
+    width: 98vw;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+
+body{
+    background-image: url("imgs/connectwork.png");
+    background-color: darkgrey;
+}
+
+#signupGet{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#signupButton {
+    text-align:center;
+    cursor:pointer;
+    background-color: darkslategrey; 
+    color:white;
+    border:none;
+    width:170px;
+    height:40px;
+    font-size: 20px;
+    transition: 1s;
+    border-radius: 10px;
+    font-family: sans-serif;
 }

@@ -6,16 +6,26 @@
     </head>
     
     <body>
-        
-        <form action="/login" id="loginForm" method="post">
-            
-            <input name="userLogin" class="userInp" id="username" type="text" placeholder="Please enter your email address" required>
-            
-            <input name="passLogin" class="userInp" id="password"  type="password" placeholder="Enter your password" required>
-            
-            <input id="registerButton" type="submit" value="Login"/>
-        </form>
-        
+        <div id="grid-container">
+            <div id="decorator">
+                <img id="decoImage" src="imgs/netkong2.png">
+            </div>
+
+            <div id="controls">
+                <form action="/" id="loginForm" method="post">
+                    
+                    <input name="userLogin" class="userInp" id="username" type="text" placeholder="Email" required>
+                    
+                    <input name="passLogin" class="userInp" id="password"  type="password" placeholder="Password" required>
+                    
+                    <input id="loginButton" type="submit" value="Login"/>
+                </form>
+                
+                <form action="/signup" id="signupGet" method="get">
+                    <input id="signupButton" type="submit" value="Sign Up"/>
+                </form>
+            </div>
+        </div>
     </body>
 
 </html>
