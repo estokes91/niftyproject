@@ -3,7 +3,8 @@ const hbs = require('hbs');
 
 var bodyParser = require('body-parser');
 var fs = require('fs');
-var users = require('./users.js')
+var users = require('./users.js');
+var events = require('./events.js');
 
 var app = express();
 
@@ -35,11 +36,25 @@ app.get('/login', (request, response) => {
 	})
 });
 
+app.get('/addevent', (request, response) => {
+	response.render('add_event.hbs', {
+		title: 'Add a new event'
+	})
+});
+
 /** 
 Receives the request from /signup form post submission, and uses urlencdodedParser variable to pass the details into the addUser function
 */
 app.post('/signup', urlencodedParser, (request, response) => {
 	users.addUser(request.body.userLogin, request.body.passLogin, request.body.userName);
+ 				response.render('congratulations.hbs', {
+ 					title: 'Congratulations'
+ 				});
+
+});
+
+app.post('/addevent', urlencodedParser, (request, response) => {
+	events.addEvent(request.body.eventName, request.body.eventDescription);
  				response.render('congratulations.hbs', {
  					title: 'Congratulations'
  				});

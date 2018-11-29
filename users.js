@@ -18,10 +18,12 @@ var writeFile = (usersArr) => {
 
 
 var addUser = (username, password, name) => {
+	event_list = []
 	var usersArr = loadFile();
 	usersArr[username] = {
 		name: name,
 		pass: password,
+		event: event_list
 	}
 	writeFile(usersArr);
 };
