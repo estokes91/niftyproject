@@ -29,8 +29,7 @@
 #eventDescription {
     margin-top:5px;
     margin-bottom:5px;
-    height:300px;
-    
+    height:300px; 
 }
 
 #confirmButton {
@@ -41,7 +40,7 @@
     right:0px;
     bottom:-30%;
     margin:auto;
-    background-color:#8DCAFF; 
+    background-color: darkslategrey; 
     color:white;
     border:none;
     width:150px;
@@ -53,13 +52,13 @@
     font-family: sans-serif;
 }
 
-#saveButton:hover {
-    background-color:#083B66;
+#confirmButton:hover {
+    background-color:#8DCAFF;
     color:white;
     font-weight: 20px;
 }
 
-
 body{
-    background-color: mediumpurple;
+    background-image: url("imgs/connectwork.png");
+    background-color: darkgrey;
 }
