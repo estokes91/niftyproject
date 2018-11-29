@@ -17,16 +17,6 @@ var writeFile = (usersArr) => {
 
 
 var addUser = (username, password, name) => {
-<<<<<<< HEAD
-	event_list = []
-	var usersArr = loadFile();
-	usersArr[username] = {
-		name: name,
-		pass: password,
-		event: event_list
-	}
-	writeFile(usersArr);
-=======
     event_list = []
     var usersArr = loadFile();
     usersArr[username] = {
@@ -35,7 +25,6 @@ var addUser = (username, password, name) => {
         event: event_list
     }
     writeFile(usersArr);
->>>>>>> 5d9ee8e2895571f9dffd2f7b53c969127fb15643
 };
 
 var loginCheck = (username, password) => {
