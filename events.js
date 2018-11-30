@@ -16,8 +16,13 @@ var writeEventsFile = (eventsArr) => {
 	fs.writeFileSync('eventlist.json', JSON.stringify(eventsArr));
 };
 
+var findLocation = (user_location) => {
+	//user request function
+	user_location.split(' ').join('+');
+	location_details = <script src=https://maps.googleapis.com/maps/api/geocode/json?address=${user_location}&key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0></script>;
+};
 
-var addEvent = (event_name, description) => {
+var addEvent = (event_name, description, location) => {
 	var event_lat = null;
 	var event_lng = null;
 	var attending = [];

@@ -73,7 +73,7 @@ app.post('/signup', urlencodedParser, (request, response) => {
 });
 
 app.post('/addevent', urlencodedParser, (request, response) => {
-	events.addEvent(request.body.eventName, request.body.eventDescription);
+	events.addEvent(request.body.eventName, request.body.eventDescription, request.body.eventLocation);
  				response.render('congratulations.hbs', {
  					title: 'Congratulations'
  				});
