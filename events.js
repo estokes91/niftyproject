@@ -1,4 +1,12 @@
 var fs = require('fs');
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+  provider: 'google',
+  httpAdaptor: 'https',
+  apiKey: 'AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0',
+  formatter: null
+};
 
 var loadEventsFile = () => {
 	try {
@@ -17,14 +25,20 @@ var writeEventsFile = (eventsArr) => {
 };
 
 var findLocation = (user_location) => {
-	//user request function
-	user_location.split(' ').join('+');
-	location_details = <script src=https://maps.googleapis.com/maps/api/geocode/json?address=${user_location}&key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0></script>;
+
+	var geocoder = NodeGeocoder(options);
+	return new Promise((resolve, reject) => {
+		geocoder.geocode(user_location, function(err, res) {
+		resolve([res[0].latitude, res[0].longitude])
+		});
+	})
 };
 
-var addEvent = (event_name, description, location) => {
-	var event_lat = null;
-	var event_lng = null;
+var addEvent = async (event_name, description, location) => {
+	var coord = await findLocation(location);
+	var event_lat = coord[0];
+	var event_lng = coord[1];
+	console.log(event_lat)
 	var attending = [];
 	var eventsArr = loadEventsFile();
 	eventsArr[event_name] = {
@@ -33,11 +47,15 @@ var addEvent = (event_name, description, location) => {
 		lng: event_lng,
 		attending: attending
 	}
+
+	console.log(event_lat)
+	console.log(event_lat)
 	writeEventsFile(eventsArr);
 };
 
 module.exports = {
   loadEventsFile,
   writeEventsFile,
+  findLocation,
   addEvent
 };
