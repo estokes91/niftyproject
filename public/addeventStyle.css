@@ -13,12 +13,13 @@
 
 .eventInp {
     width:50%;
-    height:10%;
+    height:8%;
     font-family: sans-serif;
-    padding:3px;
-    border-radius:5px;
+    padding:7px;
     position:relative;
     outline: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 }
 
 #eventName {
@@ -30,6 +31,10 @@
     margin-top:5px;
     margin-bottom:5px;
     height:300px; 
+    resize: none;
+    padding: 7px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 }
 
 #confirmButton {
@@ -38,7 +43,7 @@
     cursor:pointer;
     left:0px;
     right:0px;
-    bottom:-30%;
+    bottom:-35%;
     margin:auto;
     background-color: darkslategrey; 
     color:white;

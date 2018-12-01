@@ -22,6 +22,7 @@ var addUser = (username, password, name) => {
     usersArr[username] = {
         name: name,
         pass: password,
+        online: 'false',
         event: event_list
     }
     writeFile(usersArr);

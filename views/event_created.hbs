@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Failed</title>
-        <link href="loginFail.css" rel="stylesheet" type="text/css">
+        <title>Successful Congratulations</title>
+        <link href="signupSuccess.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
         <div id="textBox">
-        	<img id="frogDad" src="imgs/feelsbadman.png">
-        	Incorrect login information.
+        	<img id="frogDad" src="imgs/smile.png">
+        	Event successfully created!
         	<br>
-        	Wanna try again?
         	<br>
         	You will be automatically redirected, or click below.
-        
-	        <form action="/" id="loginGet" method="get">
+
+	        <form action="/homepage" id="loginGet" method="get">
 	            <input id="loginButton" type="submit" value="Back"/>
 	        </form>
     	</div>
-
     <script>
   		setTimeout(function () {
      	// after 2 seconds
-     	window.location = "/";
+     	window.location = "/homepage";
   			}, 4000)
-	  </script>
+	</script>
     </body>
 </html>
