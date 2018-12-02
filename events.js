@@ -38,7 +38,6 @@ var addEvent = async (event_name, description, location) => {
 	var coord = await findLocation(location);
 	var event_lat = coord[0];
 	var event_lng = coord[1];
-	console.log(event_lat)
 	var attending = [];
 	var eventsArr = loadEventsFile();
 	eventsArr[event_name] = {
@@ -47,9 +46,6 @@ var addEvent = async (event_name, description, location) => {
 		lng: event_lng,
 		attending: attending
 	}
-
-	console.log(event_lat)
-	console.log(event_lat)
 	writeEventsFile(eventsArr);
 };
 
