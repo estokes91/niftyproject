@@ -31,11 +31,11 @@
                     zoom:13
                 });
 
-                var marker = new google.maps.Marker({
-                    position:  {lat:49.2827,lng:-123.1207},
-                    map:map,
-                    draggable: true
-                });
+                // var marker = new google.maps.Marker({
+                //     position:  {lat:49.2827,lng:-123.1207},
+                //     map:map,
+                //     draggable: false
+                // });
 
                 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchField'));
 
@@ -47,30 +47,67 @@
 
                     for(i=0; place=places[i];i++){
                         bounds.extend(place.geometry.location);
-                        marker.setPosition(place.geometry.location);
                     }
 
                     map.fitBounds(bounds);
                     map.setZoom(15);
-                })
+                });
+                    // json_file = JSON.parse(fs.readFileSync('eventlist.json'))
+
+                    var json_file = [
+                          {
+                            "title": "Stockholm",
+                            "lat": 59.3,
+                            "lng": 18.1,
+                            "description": "Stockholm is the capital and the largest city of Sweden and constitutes the most populated urban area in Scandinavia with a population of 2.1 million in the metropolitan area (2010)"
+                          },
+                          {
+                            "title": "Oslo",
+                            "lat": 59.9,
+                            "lng": 10.8,
+                            "description": "Oslo is a municipality, and the capital and most populous city of Norway with a metropolitan population of 1,442,318 (as of 2010)."
+                          },
+                          {
+                            "title": "Copenhagen",
+                            "lat": 55.7,
+                            "lng": 12.6,
+                            "description": "Copenhagen is the capital of Denmark and its most populous city, with a metropolitan population of 1,931,467 (as of 1 January 2012)."
+                          }
+                        ]
+
+                    for (var i = 0; i < json_file.length; i++) {
+        
+                        // Current object
+                        var unique_event = json_file[i];
+
+                        // Adding a new marker for the object
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(unique_event.lat, unique_event.lng),
+                            map: map,
+                            title: unique_event.event_name // this works, giving the marker a title with the correct title
+                        })
+                    };
+                
 
             </script>
  
 
-            <div id="about" class="infoBox">
+            <div id="aboutBox" class="infoBox">
                 <h3>Event Details</h3>
+                <div id="aboutText">Event Details Test</div>
             </div>
 
-            <div id="attending" class="infoBox">
+            <div id="attendingBox" class="infoBox">
                 <h3>Who's Going?</h3>
+                <div id="attendingText">Attending Test</div>
             </div>
 
-            <div id="bigboss" class="infoBox">
+            <div id="similarBox" class="infoBox">
                 <h3>Similar Events</h3>
+                <div id="similarText">Similar Test</div>
             </div>
         </div>
 
-        <script src="buttonlinks.js"></script>
     </body>
     
 </html>
