@@ -37,6 +37,7 @@
                 //     draggable: false
                 // });
 
+
                 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchField'));
 
                 google.maps.event.addListener(searchBox, 'places_changed', function(){
@@ -51,6 +52,7 @@
 
                     map.fitBounds(bounds);
                     map.setZoom(15);
+
                 });
                     // json_file = JSON.parse(fs.readFileSync('eventlist.json'))
 
@@ -87,7 +89,23 @@
                             title: unique_event.event_name // this works, giving the marker a title with the correct title
                         })
                     };
-                
+                })
+
+                //Below is the correct code to allow for markers to be added via json file.
+
+                // json_file = **I DON'T KNOW HOW TO GET THE EVENTS**
+
+                // for(var i = 0; i < json_file.length; i++) {
+    
+                //     // Current object
+                //     var unique_event = json_file[i];
+
+                //     // Adding a new marker for the object
+                //     var marker = new google.maps.Marker({
+                //         position: new google.maps.LatLng(unique_event.event_lat, unique_event.event_lng),
+                //         map: map,
+                //         title: unique_event.event_name // this works, giving the marker a title with the correct title
+                //     });
 
             </script>
  
