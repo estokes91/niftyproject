@@ -74,7 +74,7 @@
     width: 100%;
 }
 
-#about{
+#aboutBox{
     background-color: rgba(47, 79, 79, 0.8);
     grid-column-start: 3;
     grid-column-end: 5;
@@ -84,7 +84,7 @@
     width: 100%;
 }
 
-#attending{
+#attendingBox{
     background-color: rgba(47, 79, 79, 0.8);
     grid-column-start: 3;
     grid-column-end: 4;
@@ -94,7 +94,7 @@
     width: 100%;
 }
 
-#bigboss{
+#similarBox{
     background-color: rgba(47, 79, 79, 0.8);
     grid-column-start: 4;
     grid-column-end: 5;
