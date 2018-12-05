@@ -1,5 +1,8 @@
 var fs = require('fs');
 
+/** 
+Loads the file, creates a file if no file exists
+*/
 var loadFile = () => {
     try {
         return JSON.parse(fs.readFileSync('accounts.json'));
@@ -11,11 +14,16 @@ var loadFile = () => {
     }
 };
 
+/** 
+Writes to the file and stringifys it
+*/
 var writeFile = (usersArr) => {
     fs.writeFileSync('accounts.json', JSON.stringify(usersArr));
 };
 
-
+/** 
+Adds a user and calls the writeFile function to write it to a database file
+*/
 var addUser = (username, password, name) => {
     event_list = []
     var usersArr = loadFile();
@@ -28,6 +36,9 @@ var addUser = (username, password, name) => {
     writeFile(usersArr);
 };
 
+/** 
+Checks that the username exists in the database file and then checks that the passwords match. returns a 1 for pass and 0 for fail
+*/
 var loginCheck = (username, password) => {
         var usersArr = loadFile();
         if (username in usersArr) {

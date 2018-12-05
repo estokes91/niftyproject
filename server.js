@@ -79,6 +79,9 @@ app.post("/eventList", (request, response) => {
 	response.send(list)
 })
 
+/** 
+used for the fetch method that the map marker uses
+*/
 app.route({
   method: 'GET',
   path: '/{filename*}',

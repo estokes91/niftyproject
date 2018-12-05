@@ -9,6 +9,9 @@ var options = {
   formatter: null
 };
 
+/** 
+Loads the file, creates a file if no file exists
+*/
 var loadEventsFile = () => {
 	try {
 		return JSON.parse(fs.readFileSync('eventlist.json'));
@@ -21,10 +24,16 @@ var loadEventsFile = () => {
 	}
 };
 
+/** 
+Writes to the file and stringifys it
+*/
 var writeEventsFile = (eventsArr) => {
 	fs.writeFileSync('eventlist.json', JSON.stringify(eventsArr));
 };
 
+/** 
+Uses a promise to find the location using Google maps API, needs the promise or else the function returns before the api does.  
+*/
 var findLocation = (user_location) => {
 	var geocoder = NodeGeocoder(options);
 	return new Promise((resolve, reject) => {
@@ -34,6 +43,9 @@ var findLocation = (user_location) => {
 	})
 };
 
+/** 
+Adds the event and calls the writeEventsFile to write it to the database
+*/
 var addEvent = async (event_name, description, location) => {
 	var usersArr = users.loadFile()
 	for (var key in usersArr){
@@ -56,6 +68,9 @@ var addEvent = async (event_name, description, location) => {
 	writeEventsFile(eventsArr);
 };
 
+/** 
+Reads the events database file and adds pins to the map based on event location
+*/
 var placeMarkers = () => {
 	json_file.push(JSON.parse(fs.readFileSync('eventlist.json')));
 

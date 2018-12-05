@@ -24,6 +24,9 @@
             <div id="view_map"></div>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0&libraries=places" type='text/javascript'></script>
             <script>
+                /** 
+                uses fetch to return a json as a response, without the fetch the markers cannot load the json file
+                */
                 fetch(`http://${window.location.host}/eventList`, {
                     method: "post",
                 }).then(res => {
