@@ -24,7 +24,6 @@
             <div id="view_map"></div>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0&libraries=places" type='text/javascript'></script>
             <script>
-
                 fetch(`http://${window.location.host}/eventList`, {
                     method: "post",
                 }).then(res => {
@@ -81,6 +80,7 @@
                 });
 
 
+
                 var map = new google.maps.Map(document.getElementById('view_map'), {
                     center: {lat:49.2827,lng:-123.1207},
                     zoom:13
@@ -90,20 +90,25 @@
             </script>
             
 
-            <div id="about" class="infoBox">
+            <div id="aboutBox" class="infoBox">
                 <h3>Event Details</h3>
                 <div id="aboutText"></div>
+                <div id="aboutText">Event Details Test</div>
             </div>
 
-            <div id="attending" class="infoBox">
+            <div id="attendingBox" class="infoBox">
                 <h3>Who's Going?</h3>
                 <div id="attendingText"></div>
+                <div id="attendingText">Attending Test</div>
+
             </div>
 
-            <div id="bigboss" class="infoBox">
+            <div id="similarBox" class="infoBox">
                 <h3>Similar Events</h3>
+                <div id="similarText">Similar Test</div>
             </div>
         </div>
+
         
     </body>
     

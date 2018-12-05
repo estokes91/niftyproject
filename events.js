@@ -1,4 +1,5 @@
 var fs = require('fs');
+var users = require('./users.js');
 var NodeGeocoder = require('node-geocoder');
 
 var options = {
@@ -34,10 +35,17 @@ var findLocation = (user_location) => {
 };
 
 var addEvent = async (event_name, description, location) => {
+	var usersArr = users.loadFile()
+	for (var key in usersArr){
+                    if (usersArr[key].online == true){
+                        var attending = [usersArr[key].name];
+                        // attending.push(usersArr[key].name); This works for appending. Use for adding more members later.
+                    }
+                }
 	var coord = await findLocation(location);
 	var event_lat = coord[0];
 	var event_lng = coord[1];
-	var attending = [];
+
 	var eventsArr = loadEventsFile();
 	eventsArr[event_name] = {
 		description: description,

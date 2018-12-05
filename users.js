@@ -22,7 +22,7 @@ var addUser = (username, password, name) => {
     usersArr[username] = {
         name: name,
         pass: password,
-        online: 'false',
+        online: false,
         event: event_list
     }
     writeFile(usersArr);
@@ -32,6 +32,13 @@ var loginCheck = (username, password) => {
         var usersArr = loadFile();
         if (username in usersArr) {
             if (password == usersArr[username].pass) {
+                for (var key in usersArr){
+                    if (usersArr.hasOwnProperty(key)){
+                        usersArr[key].online = false;
+                    }
+                }
+                usersArr[username].online = true;
+                writeFile(usersArr);
                 return 1
             } else {
                 return 0
@@ -40,6 +47,7 @@ var loginCheck = (username, password) => {
             return 0
         };
 };
+
 module.exports = {
             loadFile,
             writeFile,
