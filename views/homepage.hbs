@@ -15,7 +15,7 @@
 
             <button onclick="window.location.href='/addevent'" class="menuItem">Add Event</button>
             <button class="menuItem">Saved Events</button>
-            <button class="menuItem">Sign Out</button>
+            <button onclick="window.location.href='/'" class="menuItem">Sign Out</button>
            
         </div>
             
@@ -62,7 +62,7 @@
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(unique_event.lat, unique_event.lng),
                         map: map,
-                        title: unique_event.event_name,
+                        eventTitle: unique_event.event_name,
                         description: unique_event.description,
                         attending: unique_event.attending
                     })
@@ -71,7 +71,8 @@
 
                  google.maps.event.addListener(marker, "click", function(e) {
                         console.log(this.description)
-                        document.getElementById("aboutText").innerHTML = this.description;
+                        // document.getElementById("aboutBox").innerHTML = this.event_name;
+                        document.getElementById("aboutText").innerHTML = marker + ' - ' + this.description;
                         document.getElementById("attendingText").innerHTML = this.attending;
 
                     });
@@ -93,19 +94,17 @@
             <div id="aboutBox" class="infoBox">
                 <h3>Event Details</h3>
                 <div id="aboutText"></div>
-                <div id="aboutText">Event Details Test</div>
             </div>
 
             <div id="attendingBox" class="infoBox">
                 <h3>Who's Going?</h3>
                 <div id="attendingText"></div>
-                <div id="attendingText">Attending Test</div>
 
             </div>
 
             <div id="similarBox" class="infoBox">
                 <h3>Similar Events</h3>
-                <div id="similarText">Similar Test</div>
+                <div id="similarText"></div>
             </div>
         </div>
 
