@@ -18,13 +18,9 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
-/**
-The get /homepage is left in for testing, remove for final build - Emmett 
-*/ 
 app.get('/homepage', (request, response) => {
 	response.render('homepage.hbs', {
-
-	})
+	});
 });
 
 app.get('/signup', (request, response) => {
@@ -58,8 +54,7 @@ app.post('/', urlencodedParser, (request, response) => {
 			title:'Login failed page'
 		});
 	}
-});
-
+});	
 
 /** 
 Receives the request from /signup form post submission, and uses urlencdodedParser variable to pass the details into the addUser function
@@ -77,9 +72,32 @@ app.post('/addevent', urlencodedParser, (request, response) => {
  				response.render('event_created.hbs', {
  					title: 'Congratulations'
  				});
+ });
 
+app.post("/eventList", (request, response) => {
+	var list = JSON.parse(fs.readFileSync('eventlist.json'))
+	response.send(list)
+})
+
+app.route({
+  method: 'GET',
+  path: '/{filename*}',
+  handler: {
+    directory: {
+      path:    __dirname + '/public',
+      listing: false,
+      index:   false
+    }
+  }
 });
 
+app.route({
+  method: 'GET',
+  path: '/',
+  handler: function(request, reply) {
+    reply.view('homepage');
+  }
+});
 
 app.listen(8080, () => {
 	console.log('Server is up on port 8080');
