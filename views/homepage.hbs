@@ -50,7 +50,10 @@
                 marker_list = []
 
                 for (event in eventList) {
-                    json_file.push(eventList[event])
+                    let list = eventList
+                    list[event].eventName = event
+                    console.log(list[event])
+                    json_file.push(list[event])
                 };
 
                 for (var i = 0; i < json_file.length; i++) {
@@ -62,7 +65,7 @@
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(unique_event.lat, unique_event.lng),
                         map: map,
-                        eventTitle: unique_event.event_name,
+                        eventName: unique_event.eventName,
                         description: unique_event.description,
                         attending: unique_event.attending
                     })
@@ -72,7 +75,7 @@
                  google.maps.event.addListener(marker, "click", function(e) {
                         console.log(this.description)
                         // document.getElementById("aboutBox").innerHTML = this.event_name;
-                        document.getElementById("aboutText").innerHTML = marker + ' - ' + this.description;
+                        document.getElementById("aboutText").innerHTML = this.eventName + ' - ' + this.description;
                         document.getElementById("attendingText").innerHTML = this.attending;
 
                     });
