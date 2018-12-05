@@ -22,22 +22,16 @@
 
         <div id="display">
             <div id="view_map"></div>
-
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOFECor-rqHgnIMhfl7ss_dXCY8V3Mtn0&libraries=places" type='text/javascript'></script>
-
             <script>
-                var map = new google.maps.Map(document.getElementById('view_map'), {
-                    center: {lat:49.2827,lng:-123.1207},
-                    zoom:13
-                });
 
-                var marker = new google.maps.Marker({
-                    position:  {lat:49.2827,lng:-123.1207},
-                    map:map,
-                    draggable: false
-                });
-
-                var searchBox = new google.maps.places.SearchBox(document.getElementById('searchField'));
+                fetch(`http://${window.location.host}/eventList`, {
+                    method: "post",
+                }).then(res => {
+                    return res.json()
+                }).then (res => {
+                    var eventList = res
+                    var searchBox = new google.maps.places.SearchBox(document.getElementById('searchField'));
 
                 google.maps.event.addListener(searchBox, 'places_changed', function(){
                     var places = searchBox.getPlaces();
@@ -47,48 +41,70 @@
 
                     for(i=0; place=places[i];i++){
                         bounds.extend(place.geometry.location);
-                        marker.setPosition(place.geometry.location);
                     }
 
                     map.fitBounds(bounds);
                     map.setZoom(15);
+                });
+
+                json_file = []
+                marker_list = []
+
+                for (event in eventList) {
+                    json_file.push(eventList[event])
+                };
+
+                for (var i = 0; i < json_file.length; i++) {
+        
+                    // Current object
+                    var unique_event = json_file[i];
+
+                    // Adding a new marker for the object
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(unique_event.lat, unique_event.lng),
+                        map: map,
+                        title: unique_event.event_name,
+                        description: unique_event.description,
+                        attending: unique_event.attending
+                    })
+                    marker_list.push(marker);
+                };
+
+                 google.maps.event.addListener(marker, "click", function(e) {
+                        console.log(this.description)
+                        document.getElementById("aboutText").innerHTML = this.description;
+                        document.getElementById("attendingText").innerHTML = this.attending;
+
+                    });
+
+                    (marker);
+                });
 
 
-                })
+                var map = new google.maps.Map(document.getElementById('view_map'), {
+                    center: {lat:49.2827,lng:-123.1207},
+                    zoom:13
+                });
 
-                //Below is the correct code to allow for markers to be added via json file.
-
-                // json_file = **I DON'T KNOW HOW TO GET THE EVENTS**
-
-                // for(var i = 0; i < json_file.length; i++) {
-    
-                //     // Current object
-                //     var unique_event = json_file[i];
-
-                //     // Adding a new marker for the object
-                //     var marker = new google.maps.Marker({
-                //         position: new google.maps.LatLng(unique_event.event_lat, unique_event.event_lng),
-                //         map: map,
-                //         title: unique_event.event_name // this works, giving the marker a title with the correct title
-                //     });
 
             </script>
- 
+            
 
             <div id="about" class="infoBox">
                 <h3>Event Details</h3>
+                <div id="aboutText"></div>
             </div>
 
             <div id="attending" class="infoBox">
                 <h3>Who's Going?</h3>
+                <div id="attendingText"></div>
             </div>
 
             <div id="bigboss" class="infoBox">
                 <h3>Similar Events</h3>
             </div>
         </div>
-
-        <script src="buttonlinks.js"></script>
+        
     </body>
     
 </html>

@@ -25,7 +25,6 @@ var writeEventsFile = (eventsArr) => {
 };
 
 var findLocation = (user_location) => {
-
 	var geocoder = NodeGeocoder(options);
 	return new Promise((resolve, reject) => {
 		geocoder.geocode(user_location, function(err, res) {
@@ -49,9 +48,27 @@ var addEvent = async (event_name, description, location) => {
 	writeEventsFile(eventsArr);
 };
 
+var placeMarkers = () => {
+	json_file.push(JSON.parse(fs.readFileSync('eventlist.json')));
+
+	for (var i = 0; i < json_file.length; i++) {
+
+	    // Current object
+	    var unique_event = json_file[i];
+
+	    // Adding a new marker for the object
+	    var marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(unique_event.lat, unique_event.lng),
+	        map: map,
+	        title: unique_event.event_name
+	    })
+	};
+};
+
 module.exports = {
   loadEventsFile,
-  writeEventsFile,
+  writeEventsFile, 
   findLocation,
-  addEvent
+  addEvent,
+  placeMarkers
 };
